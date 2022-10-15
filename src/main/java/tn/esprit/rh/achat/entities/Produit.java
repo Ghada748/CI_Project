@@ -47,9 +47,12 @@ public class Produit implements Serializable {
 	@ManyToOne
 	@JsonIgnore
 	private CategorieProduit categorieProduit;
-	
 
 
-	
-
+	public Produit(Long i, String gh, String kj, float v) {
+		this.idProduit=i;
+		this.codeProduit=gh;
+		this.libelleProduit=kj;
+		this.prix=v;
+	}
 }
