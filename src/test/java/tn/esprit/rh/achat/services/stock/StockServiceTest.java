@@ -48,7 +48,7 @@ public class StockServiceTest {
 		when(sr.save(stock1)).thenReturn(stock1);
 		assertNotNull(stock1);
 		assertEquals(stock1, is.addStock(stock1)); 
-		System.out.println("add works !");
+		System.out.println("ajout avec succées");
 	}
 
 
@@ -58,7 +58,7 @@ public class StockServiceTest {
 				.of(stock1,stock2)
 				.collect(Collectors.toList()));
 		assertEquals(2,is.retrieveAllStocks().size());
-		System.out.println("Retrieve operators works !");
+		System.out.println("liste des stocks affiché");
 	}
 
 
@@ -68,7 +68,7 @@ public class StockServiceTest {
 		sr.save(stock1);
 		is.deleteStock(stock1.getIdStock());
 		verify(sr, times(1)).deleteById(stock1.getIdStock());
-		System.out.println("Delete works !");
+		System.out.println("succées de suppression");
 		
 	}
 
@@ -78,14 +78,14 @@ public class StockServiceTest {
 		when(sr.save(stock1)).thenReturn(stock1);
 		assertNotNull(stock1);
 		assertEquals(stock1, is.updateStock(stock1));
-		System.out.println("Update works !");
+		System.out.println("succées de mise à jour");
 	}
 
 	@Test
 	public void retrieveStockTest() {
 		when(sr.findById(stock1.getIdStock())).thenReturn(Optional.of(stock1));
 		assertEquals(stock1, is.retrieveStock(stock1.getIdStock()));
-		System.out.println("Retrieve works !");
+		System.out.println("succées d affichage");
 	}
 	    
 	    
