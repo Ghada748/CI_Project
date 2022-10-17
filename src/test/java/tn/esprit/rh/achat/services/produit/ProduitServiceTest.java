@@ -65,7 +65,7 @@ public class ProduitServiceTest {
                 .of(p1,p2)
                 .collect(Collectors.toList()));
         assertEquals(2,ps.retrieveAllProduits().size());
-        System.out.println("Retrieve  All produits works !");
+        System.out.println("Retrieve  All Produits Works !");
     }
 
 
@@ -74,7 +74,7 @@ public class ProduitServiceTest {
         when(pr.save(p1)).thenReturn(p1);
         assertNotNull(p1);
         assertEquals(p1, ps.addProduit(p1));
-        System.out.println("Add produits works !");
+        System.out.println("Add Produit Works !");
     }
 
     @Test
@@ -82,7 +82,7 @@ public class ProduitServiceTest {
         pr.save(p1);
         ps.deleteProduit(p1.getIdProduit());
         verify(pr, times(1)).deleteById(p1.getIdProduit());
-        System.out.println("Delete produits works !");
+        System.out.println("Delete Produit Works !");
 
     }
 
@@ -90,7 +90,7 @@ public class ProduitServiceTest {
     public void retrieveProduitTest() {
         when(pr.findById(p1.getIdProduit())).thenReturn(Optional.of(p1));
         assertEquals(p1, ps.retrieveProduit(p1.getIdProduit()));
-        System.out.println("Retrieve produit works !");
+        System.out.println("Retrieve Produit Works !");
     }
 
 
@@ -100,13 +100,15 @@ public class ProduitServiceTest {
         assertNotNull(p1);
         assertEquals(p1, ps.updateProduit(p1));
 
-        System.out.println("update produits works !");
+        System.out.println("Update Produit Works !");
     }
 
 @Test
 public void assignProduitToStockTest() {
     when(SR.findById(S.getIdStock())).thenReturn(Optional.of(S));
     when(pr.findById(p1.getIdProduit())).thenReturn(Optional.of(p1));
+
+    System.out.println("Assign Produit To Stock Works !");
 }
 
 
