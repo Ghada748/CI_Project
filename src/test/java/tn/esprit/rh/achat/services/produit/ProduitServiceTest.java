@@ -53,9 +53,9 @@ public class ProduitServiceTest {
     private StockRepository SR;
 
 
-    Produit p1=new Produit(1L,"p1","DELL",5000,new Date(),new Date(),null,null,null);
+    Produit p1=new Produit(1L,"p1","DELL",4500,new Date(),new Date(),null,null,null);
     Produit p2=new Produit(1L,"p2","LENOVO",4000,new Date(),new Date(),null,null,null);
-    Stock S=new Stock(1L,"S1",50,5,null);
+    Stock S=new Stock(1L,"S1",100,3,null);
 
 
 
@@ -103,11 +103,11 @@ public class ProduitServiceTest {
         System.out.println("update produits works !");
     }
 
-/*@Test
+@Test
 public void assignProduitToStockTest() {
-	when(SR.findById(S.getIdStock())).thenReturn(Optional.of(S));
-	when(pr.findById(p1.getIdProduit())).thenReturn(Optional.of(p1));
-}*/
+    when(SR.findById(S.getIdStock())).thenReturn(Optional.of(S));
+    when(pr.findById(p1.getIdProduit())).thenReturn(Optional.of(p1));
+}
 
 
 }
