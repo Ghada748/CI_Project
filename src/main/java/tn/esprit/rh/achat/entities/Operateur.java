@@ -35,10 +35,11 @@ public class Operateur implements Serializable{
 	@JsonIgnore
 	private Set<Facture> factures;
 
-	public Operateur(long i, String nour, String mallek, String s) {
-		this.idOperateur=i;
-		this.nom=nour;
-		this.prenom=mallek;
-		this.password=s;
+	public Operateur(Long idOperateur, String nom, String prenom, String password) {
+		super();
+		this.idOperateur = idOperateur;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.password = password;
 	}
 }
