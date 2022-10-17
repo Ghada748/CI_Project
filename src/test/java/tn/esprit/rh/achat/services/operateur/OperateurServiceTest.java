@@ -1,4 +1,4 @@
-package tn.esprit.rh.achat.services.produit;
+package tn.esprit.rh.achat.services.operateur;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -33,6 +33,7 @@ public class OperateurServiceTest {
     private OperateurRepository or;
     private Operateur op1 = new Operateur(1L,"nour","mallek","1234");
     private Operateur op2 = new Operateur(2L,"malleek","nouur","20853");
+    private Operateur op3 = new Operateur(3L,"eline","mallek","23456");
     @Autowired
     IOperateurService os;
 
@@ -41,7 +42,7 @@ public class OperateurServiceTest {
         when(or.save(op1)).thenReturn(op1);
         assertNotNull(op1);
         assertEquals(op1, os.addOperateur(op1));
-        System.out.println("add works !");
+        System.out.println("l'ajout est effectué avec succès !");
     }
     @Test
     public void retrieveAllOperateursTest() {
@@ -49,7 +50,7 @@ public class OperateurServiceTest {
                 .of(op1,op2)
                 .collect(Collectors.toList()));
         assertEquals(2,os.retrieveAllOperateurs().size());
-        System.out.println("Retrieve operators works !");
+        System.out.println("afficher tout est effectué avec succès !");
     }
 
     @Test
@@ -57,7 +58,7 @@ public class OperateurServiceTest {
         or.save(op1);
         os.deleteOperateur(op1.getIdOperateur());
         verify(or, times(1)).deleteById(op1.getIdOperateur());
-        System.out.println("Delete works !");
+        System.out.println(" suppression effectué avec succès !");
 
     }
     @Test
@@ -65,13 +66,13 @@ public class OperateurServiceTest {
         when(or.save(op1)).thenReturn(op1);
         assertNotNull(op1);
         assertEquals(op1, os.updateOperateur(op1));
-        System.out.println("Update works !");
+        System.out.println("modification effectué avec succès!");
     }
 
     @Test
     public void retrieveOperateurTest() {
         when(or.findById(op1.getIdOperateur())).thenReturn(Optional.of(op1));
         assertEquals(op1, os.retrieveOperateur(op1.getIdOperateur()));
-        System.out.println("Retrieve operator works !");
+        System.out.println("affichage est effectué avec succès !");
     }
 }
